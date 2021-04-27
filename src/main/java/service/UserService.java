@@ -19,6 +19,9 @@ public class UserService extends userGrpc.userImplBase{
         } else {
             response.setResponseMessage("Falha ao efetuar o login").setResponseCode(400);
         }
+        
+        responseObserver.onNext(response.build());
+        responseObserver.onCompleted();
     }
 
     @Override
